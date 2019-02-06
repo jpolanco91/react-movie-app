@@ -1,6 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var MovieContainer = require('./components/MovieContainer');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MovieContainer from './components/MovieContainer';
 
 const App = () => (
   <div>

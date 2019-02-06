@@ -1,31 +1,33 @@
-var React = require('react');
-var MovieElement = require('./MovieElement');
+import React from 'react';
+import Axios from 'axios';
+import MovieElement from './MovieElement';
 
 class MovieContainer extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      movies: []
-    }
+      movies: [],
+    };
   }
 
   componentDidMount() {
     Axios.get('http://varnatrd.tech/api/series').then(({ data }) => {
-      console.log(data)
-      this.setState({ movies: data })
-    })
+      this.setState({ movies: data });
+    });
   }
 
   render() {
+    const { movies } = this.state;
     return (
       <div>
-      {this.state.movies.map((movie) => {
-        return (<MovieElement imageSource={movie.fullImage} title={movie.title} year={movie.year} />)
-      })}
+        {movies.map((movie) => {
+          return (
+            <MovieElement imageSource={movie.covertImage} title={movie.title} year={movie.year} />);
+        })}
       </div>
-    )
+    );
   }
 }
 
-module.exports =  MovieContainer;
+export default MovieContainer;

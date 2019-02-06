@@ -1,16 +1,24 @@
-var React = require('react');
+import React from 'react';
+import PropTypes from 'react-proptypes';
 
-class MovieElement extends React.Component {
-  // Title, Image, year
-  render() {
-    return (
-      <div>
-        <img src={this.props.imageSource} />
-        <div>{this.props.title}</div>
-        <div>{this.props.year}</div>
-      </div>
-    )
-  }
+function MovieElement(props) {
+  const { imageSource } = props;
+  const { title } = props;
+  const { year } = props;
+
+  return (
+    <div>
+      <img src={imageSource} alt="" />
+      <div>{title}</div>
+      <div>{year}</div>
+    </div>
+  );
 }
 
-module.exports =  MovieElement;
+MovieElement.propTypes = {
+  imageSource: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+};
+
+export default MovieElement;
