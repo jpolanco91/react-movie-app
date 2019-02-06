@@ -3,12 +3,9 @@ import Axios from 'axios';
 import MovieElement from './MovieElement';
 
 class MovieContainer extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      movies: [],
-    };
+  state = {
+    movies: []
   }
 
   componentDidMount() {
