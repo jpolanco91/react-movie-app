@@ -1,6 +1,4 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
-var Axios = require('axios');
 var MovieElement = require('./MovieElement');
 
 class MovieContainer extends React.Component {
