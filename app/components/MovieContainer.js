@@ -12,7 +12,7 @@ class MovieContainer extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get('http://varnatrd.tech/api/series').then(({ data }) => {
+    Axios.get('http://varnatrd.tech/api/series').then(({ data = [] }) => {
       this.setState({ movies: data });
     });
   }
@@ -21,9 +21,10 @@ class MovieContainer extends React.Component {
     const { movies } = this.state;
     return (
       <div>
-        {movies.map((movie) => {
+        {movies.map(({ covertImage, title, year }) => {
           return (
-            <MovieElement imageSource={movie.covertImage} title={movie.title} year={movie.year} />);
+            <MovieElement imageSource={covertImage} title={title} year={year} />
+          );
         })}
       </div>
     );

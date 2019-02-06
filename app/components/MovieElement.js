@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'react-proptypes';
 
-function MovieElement(props) {
-  const { imageSource } = props;
-  const { title } = props;
-  const { year } = props;
-
+function MovieElement({ imageSource, title, year }) {
   return (
     <div>
       <img src={imageSource} alt="" />
@@ -18,7 +14,7 @@ function MovieElement(props) {
 MovieElement.propTypes = {
   imageSource: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
 };
 
 export default MovieElement;
