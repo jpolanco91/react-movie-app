@@ -1,36 +1,46 @@
-import React, { Component }  from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Axios from 'axios';
+import PropTypes from 'react-proptypes';
 import MovieContainer from './MovieContainer';
 import MovieTrailerPlayer from './MovieTrailerPlayer';
 
 class App extends Component {
-    state = {
-        movies: []
-    }
+  state = {
+    movies: [],
+  };
 
-    componentDidMount() {
-        Axios.get('http://varnatrd.tech/api/series').then(({ data = [] }) => {
-          this.setState({ movies: data });
-        });
-    }
+  componentDidMount() {
+    const { config } = this.props;
+    Axios.get(config.API_URL).then(({ data = [] }) => {
+      this.setState({ movies: data });
+    });
+  }
 
-    render() {
-        const { movies } = this.state
+  render() {
+    const { movies } = this.state;
+    const { config } = this.props;
 
-        return (
-            <div>
-              <Route
-                exact
-                path="/"
-                render={() => (
-                    <MovieContainer movies={movies} />
-                )}
-                />
-              <Route path='/movie_trailer/:movieId' component={MovieTrailerPlayer} />
-            </div>
-        );
-    }
+    return (
+      <div>
+        <Route exact path="/" render={() => <MovieContainer movies={movies} />} />
+        <Route
+          path="/movie_trailer/:movieId"
+          render={props => <MovieTrailerPlayer {...props} apiUrl={config.API_URL} />}
+        />
+      </div>
+    );
+  }
 }
+
+App.propTypes = {
+  config: PropTypes.shape({
+    API_URL: PropTypes.string.isRequired,
+  }),
+};
+
+App.defaultProps = {
+  config: {},
+};
 
 export default App;
