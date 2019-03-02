@@ -22,13 +22,13 @@ class App extends Component {
     const { config } = this.props;
 
     return (
-      <div>
+      <React.Fragment>
         <Route exact path="/" render={() => <MovieContainer movies={movies} />} />
         <Route
           path="/movie_trailer/:movieId"
           render={props => <MovieTrailerPlayer {...props} apiUrl={config.API_URL} />}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

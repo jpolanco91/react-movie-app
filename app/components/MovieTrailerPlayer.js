@@ -8,11 +8,10 @@ class MovieTrailerPlayer extends Component {
   };
 
   componentDidMount() {
-    const { apiUrl } = this.props;
-    const { match } = this.props;
+    const { apiUrl, match } = this.props;
     const fullTrailerUrl = `${apiUrl}${match.params.movieId}`;
 
-    Axios.get(fullTrailerUrl).then(({ data = [] }) => {
+    Axios.get(fullTrailerUrl).then(({ data = {} }) => {
       this.setState({ currentMovieTrailerUrl: data.trailer });
     });
   }
@@ -22,7 +21,7 @@ class MovieTrailerPlayer extends Component {
     return (
       <div>
         <a href={currentMovieTrailerUrl}>
-          <span>Link to play trailer</span>
+          Link to play trailer
         </a>
       </div>
     );
