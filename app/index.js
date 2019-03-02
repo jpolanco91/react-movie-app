@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MovieContainer from './components/MovieContainer';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/App';
+import config from '../config/config.json';
 
-const App = () => (
-  <div>
-    <MovieContainer />
-  </div>
+ReactDOM.render(
+  <BrowserRouter>
+    <App config={config} />
+  </BrowserRouter>,
+  document.getElementById('app'),
 );
-
-ReactDOM.render(<App />, document.getElementById('app'));

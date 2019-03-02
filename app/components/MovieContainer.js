@@ -1,31 +1,23 @@
 import React from 'react';
-import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import PropTypes from 'react-proptypes';
 import MovieElement from './MovieElement';
 
-class MovieContainer extends React.Component {
+const MovieContainer = ({ movies = [] }) => (
+  <div>
+    {movies.map(({ covertImage, title, year, _id }) => (
+      <Link to={`/movie_trailer/${_id}`}>
+        <MovieElement imageSource={covertImage} title={title} year={year} />
+      </Link>
+    ))}
+  </div>
+);
 
-  state = {
-    movies: []
-  }
-
-  componentDidMount() {
-    Axios.get('http://varnatrd.tech/api/series').then(({ data = [] }) => {
-      this.setState({ movies: data });
-    });
-  }
-
-  render() {
-    const { movies } = this.state;
-    return (
-      <div>
-        {movies.map(({ covertImage, title, year }) => {
-          return (
-            <MovieElement imageSource={covertImage} title={title} year={year} />
-          );
-        })}
-      </div>
-    );
-  }
-}
+MovieContainer.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object),
+};
+MovieContainer.defaultProps = {
+  movies: [],
+};
 
 export default MovieContainer;
