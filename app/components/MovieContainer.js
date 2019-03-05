@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'react-proptypes';
 import MovieElement from './MovieElement';
 
 const MovieContainer = ({ movies = [] }) => (
-  <div>
-    {movies.map(({ covertImage, title, year, _id }) => (
-      <Link to={`/movie_trailer/${_id}`}>
-        <MovieElement imageSource={covertImage} title={title} year={year} />
-      </Link>
-    ))}
-  </div>
+  <section className="section is-medium">
+    <div className="container">
+      <div className="columns is-multiline">
+        {movies.map(({ covertImage, title, year, _id }) => (
+          <MovieElement imageSource={covertImage} title={title} year={year} id={_id} />
+        ))}
+      </div>
+    </div>
+  </section>
 );
 
 MovieContainer.propTypes = {

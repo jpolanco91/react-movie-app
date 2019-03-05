@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Axios from 'axios';
 import PropTypes from 'react-proptypes';
+import Nav from './Nav';
 import MovieContainer from './MovieContainer';
 import MovieTrailerPlayer from './MovieTrailerPlayer';
 
@@ -23,6 +24,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
+        <Nav />
         <Route exact path="/" render={() => <MovieContainer movies={movies} />} />
         <Route
           path="/movie_trailer/:movieId"

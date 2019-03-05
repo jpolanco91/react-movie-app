@@ -20,9 +20,7 @@ class MovieTrailerPlayer extends Component {
     const { currentMovieTrailerUrl } = this.state;
     return (
       <div>
-        <a href={currentMovieTrailerUrl}>
-          Link to play trailer
-        </a>
+        <a href={currentMovieTrailerUrl}>Link to play trailer</a>
       </div>
     );
   }
