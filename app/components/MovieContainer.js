@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'react-proptypes';
 import MovieElement from './MovieElement';
 
-const MovieContainer = ({ movies = [] }) => (
+const MovieContainer = ({ movies }) => (
   <section className="section is-medium">
     <div className="container">
       <div className="columns is-multiline">
