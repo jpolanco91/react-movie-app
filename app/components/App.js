@@ -12,15 +12,19 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const { config } = this.props;
-    Axios.get(config.API_URL).then(({ data = [] }) => {
+    const {
+      config: { API_URL },
+    } = this.props;
+    Axios.get(API_URL).then(({ data = [] }) => {
       this.setState({ movies: data });
     });
   }
 
   render() {
     const { movies } = this.state;
-    const { config } = this.props;
+    const {
+      config: { API_URL },
+    } = this.props;
 
     return (
       <React.Fragment>
@@ -28,7 +32,7 @@ class App extends Component {
         <Route exact path="/" render={() => <MovieContainer movies={movies} />} />
         <Route
           path="/movie_trailer/:movieId"
-          render={props => <MovieTrailerPlayer {...props} apiUrl={config.API_URL} />}
+          render={props => <MovieTrailerPlayer {...props} apiUrl={API_URL} />}
         />
       </React.Fragment>
     );
@@ -38,11 +42,7 @@ class App extends Component {
 App.propTypes = {
   config: PropTypes.shape({
     API_URL: PropTypes.string.isRequired,
-  }),
-};
-
-App.defaultProps = {
-  config: {},
+  }).isRequired,
 };
 
 export default App;
