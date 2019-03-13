@@ -15,6 +15,11 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
     ],
   },
+  resolve: {
+    alias: {
+      styles: path.resolve(__dirname, './css/'),
+    },
+  },
   mode: 'development',
   devServer: {
     historyApiFallback: true,
