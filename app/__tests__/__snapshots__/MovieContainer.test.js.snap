@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieContainer snapshot test 1`] = `
+<section
+  className="section is-medium"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="columns is-multiline"
+    >
+      <div
+        className="column is-one-quarter"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-image"
+          >
+            <figure
+              className="image is-4by3"
+            >
+              <img
+                alt=""
+                src="http://www.myimage.com/myImage.png"
+              />
+            </figure>
+          </div>
+          <div
+            className="card-content"
+          >
+            <div
+              className="media-content"
+            >
+              <a
+                href="/movie_trailer/1"
+                onClick={[Function]}
+              >
+                <p
+                  className="title is-4"
+                >
+                  My title
+                </p>
+              </a>
+              <p
+                className="subtitle is-6"
+              >
+                2008
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

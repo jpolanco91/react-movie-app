@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav snapshot test 1`] = `
+<nav
+  aria-label="main navigation"
+  className="navbar is-warning is-fixed-top"
+  role="navigation"
+>
+  <div
+    className="navbar-brand"
+  >
+    <a
+      className="navbar-item"
+      href="https://bulma.io"
+    >
+      <img
+        alt=""
+        height="28"
+        src="https://bulma.io/images/bulma-logo.png"
+        width="112"
+      />
+    </a>
+    <div
+      aria-expanded="false"
+      aria-label="menu"
+      className="navbar-burger burger"
+      data-target="navbarBasicExample"
+      role="button"
+    >
+      <span
+        aria-hidden="true"
+      />
+      <span
+        aria-hidden="true"
+      />
+      <span
+        aria-hidden="true"
+      />
+    </div>
+  </div>
+</nav>
+`;

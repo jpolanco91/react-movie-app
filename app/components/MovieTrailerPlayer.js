@@ -59,7 +59,12 @@ class MovieTrailerPlayer extends Component {
 
 MovieTrailerPlayer.propTypes = {
   apiUrl: PropTypes.string.isRequired,
-  match: PropTypes.objectOf(PropTypes.object),
+  match: PropTypes.shape({
+    params: PropTypes.object,
+    isExact: PropTypes.bool,
+    path: '',
+    url: '',
+  }),
 };
 
 MovieTrailerPlayer.defaultProps = {

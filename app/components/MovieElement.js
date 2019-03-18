@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'react-proptypes';
 
-const MovieElement = ({ imageSource, title, year, id }) => (
-  <div className="column is-one-quarter">
+const MovieElement = ({ imageSource, title, year, id, movieKey }) => (
+  <div key={movieKey} className="column is-one-quarter">
     <div className="card">
       <div className="card-image">
         <figure className="image is-4by3">
@@ -23,6 +23,7 @@ const MovieElement = ({ imageSource, title, year, id }) => (
 );
 
 MovieElement.propTypes = {
+  movieKey: PropTypes.string.isRequired,
   imageSource: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
