@@ -14,11 +14,15 @@ class MovieTrailerPlayer extends Component {
     const fullTrailerUrl = `${apiUrl}${match.params.movieId}`;
 
     Axios.get(fullTrailerUrl).then(({ data = {} }) => {
-      this.setState({
-        currentMovieTrailerUrl: data.trailer,
-        movieTitle: data.title,
-        movieYear: data.year,
-      });
+      this.setMovieData(data);
+    });
+  }
+
+  setMovieData(movieData) {
+    this.setState({
+      currentMovieTrailerUrl: movieData.trailer,
+      movieTitle: movieData.title,
+      movieYear: movieData.year,
     });
   }
 
