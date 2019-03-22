@@ -7,13 +7,7 @@ const MovieContainer = ({ movies }) => (
     <div className="container">
       <div className="columns is-multiline">
         {movies.map(({ covertImage, title, year, _id }) => (
-          <MovieElement
-            movieKey={`${_id}-${title}`}
-            imageSource={covertImage}
-            title={title}
-            year={year}
-            id={_id}
-          />
+          <MovieElement key={_id} imageSource={covertImage} title={title} year={year} id={_id} />
         ))}
       </div>
     </div>

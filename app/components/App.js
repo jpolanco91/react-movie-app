@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Axios from 'axios';
 import PropTypes from 'react-proptypes';
 import Nav from './Nav';
@@ -15,7 +15,11 @@ class App extends Component {
     const {
       config: { API_URL },
     } = this.props;
-    Axios.get(API_URL).then(({ data = [] }) => {
+    this.setMovies(API_URL);
+  }
+
+  setMovies(apiUrl) {
+    Axios.get(apiUrl).then(({ data = [] }) => {
       this.setState({ movies: data });
     });
   }
@@ -27,14 +31,16 @@ class App extends Component {
     } = this.props;
 
     return (
-      <React.Fragment>
-        <Nav />
-        <Route exact path="/" render={() => <MovieContainer movies={movies} />} />
-        <Route
-          path="/movie_trailer/:movieId"
-          render={props => <MovieTrailerPlayer {...props} apiUrl={API_URL} />}
-        />
-      </React.Fragment>
+      <BrowserRouter>
+        <React.Fragment>
+          <Nav />
+          <Route exact path="/" render={() => <MovieContainer movies={movies} />} />
+          <Route
+            path="/movie_trailer/:movieId"
+            render={props => <MovieTrailerPlayer {...props} apiUrl={API_URL} />}
+          />
+        </React.Fragment>
+      </BrowserRouter>
     );
   }
 }
