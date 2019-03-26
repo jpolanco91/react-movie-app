@@ -42,4 +42,9 @@ describe('When a valid array of movies is present', () => {
     const movieElement = rootComponent.find(element => element.type === MovieElement);
     expect(movieElement).toBeTruthy();
   });
+
+  it('should have movies prop not null', () => {
+    const movieContainer = rootComponent.find(element => element.type === MovieContainer);
+    expect(movieContainer.props.movies).toBeTruthy();
+  });
 });
